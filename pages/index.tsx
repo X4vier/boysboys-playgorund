@@ -68,7 +68,26 @@ export default function Home() {
           >
             {`Clear Canvas`}
           </button>
-          <button className={styles.button}>{`Click me`}</button>
+          <button
+            className={styles.button}
+            onClick={() => {
+              const x = Math.floor(Math.random() * CANVAS_WIDTH);
+              const y = Math.floor(Math.random() * CANVAS_HEIGHT);
+              const dimension = Math.max(50, Math.random() * 100);
+              const canvas = canvasRef.current;
+              if (canvas == null) {
+                return;
+              }
+              const ctx = canvas.getContext("2d");
+              if (ctx) {
+                ctx.beginPath();
+                ctx.rect(x, y, dimension, dimension);
+                ctx.fill();
+              }
+            }}
+          >
+            {`Add Square`}
+          </button>
           <button className={styles.button}>{`Click me`}</button>
           <button className={styles.button}>{`Click me`}</button>
           <button className={styles.button}>{`Click me`}</button>
