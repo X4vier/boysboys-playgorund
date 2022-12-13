@@ -51,7 +51,7 @@ export default function Home() {
               }
             }}
           >
-            {`Add Circle`}
+            {`Circle Make`}
           </button>
           <button
             className={styles.button}
@@ -91,7 +91,28 @@ export default function Home() {
           >
             {`Add Square`}
           </button>
-          <button className={styles.button}>{`Click me`}</button>
+          <button
+            className={styles.button}
+            onClick={() => {
+              const canvas = canvasRef.current;
+              if (canvas == null) {
+                return;
+              }
+              const ctx = canvas.getContext("2d");
+              if (ctx == null) {
+                return;
+              }
+
+              console.log("hello");
+              var img = document.createElement("img");
+              img.onload = function () {
+                ctx.drawImage(img, 0, 0); // Or at whatever offset you like
+              };
+              img.src =
+                "https://d3t3ozftmdmh3i.cloudfront.net/production/podcast_uploaded_episode400/19225409/19225409-1641142919575-336423d135b8b.jpg";
+            }}
+          >{`Mars & Dogecoin`}</button>
+
           <button className={styles.button}>{`Click me`}</button>
           <button className={styles.button}>{`Click me`}</button>
           <button className={styles.button}>{`Click me`}</button>
