@@ -82,7 +82,10 @@ export default function Home() {
               if (ctx) {
                 ctx.beginPath();
                 ctx.rect(x, y, dimension, dimension);
+                const hue = Math.floor(Math.random() * 360);
+                ctx.fillStyle = `hsl(${hue}, 100%, 50%)`;
                 ctx.fill();
+                ctx.fillStyle = `rgb(0, 0, 0)`;
               }
             }}
           >
